@@ -1,0 +1,79 @@
+<view class="page create-page">
+  <view class="create-hero">
+    <view>
+      <text class="hero-kicker">NEW TASK</text>
+      <view class="hero-title">发布任务</view>
+      <view class="hero-copy">把物品、路线、凭证和报酬一次填清楚。</view>
+    </view>
+    <view class="fee-preview">
+      <text class="fee-label">配送费</text>
+      <text class="fee-value">¥{{fee || "--"}}</text>
+    </view>
+  </view>
+
+  <view class="section form-shell">
+    <view class="form-group">
+      <view class="group-title">任务类型</view>
+      <picker range="{{types}}" value="{{typeIndex}}" bindchange="onTypeChange">
+        <view class="picker picker-row">
+          <text>{{types[typeIndex]}}</text>
+          <text class="picker-arrow">⌄</text>
+        </view>
+      </picker>
+    </view>
+
+    <view class="form-group">
+      <view class="group-title">配送路线</view>
+      <text class="label">取件地点</text>
+      <input class="input" value="{{from}}" placeholder="例如：东门驿站 A 架" bindinput="onInput" data-field="from" />
+
+      <text class="label">送达地点</text>
+      <input class="input" value="{{to}}" placeholder="例如：1号宿舍楼 508" bindinput="onInput" data-field="to" />
+
+      <text class="label">取件码或补充信息</text>
+      <input class="input" value="{{pickupCode}}" placeholder="后续仅跑腿员可见" bindinput="onInput" data-field="pickupCode" />
+    </view>
+
+    <view class="form-group">
+      <view class="group-title">任务强度</view>
+      <view class="segmented">
+        <view wx:for="{{urgents}}" wx:key="*this" class="segment {{item.selected}}" bindtap="setUrgent" data-value="{{item.name}}">
+          {{item.name}}
+        </view>
+      </view>
+    </view>
+
+    <view class="form-group">
+      <view class="group-head">
+        <view class="group-title">物品照片</view>
+        <text class="mini-label">{{images.length}}/3</text>
+      </view>
+      <view class="image-grid">
+        <image wx:for="{{images}}" wx:key="*this" class="thumb" src="{{item}}" mode="aspectFill" />
+        <view wx:if="{{images.length < 3}}" class="upload-box upload-card" bindtap="chooseImage">
+          <text>+</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="form-group">
+      <view class="group-title">备注</view>
+      <textarea class="textarea" value="{{note}}" placeholder="例如：送达前请先电话联系、请勿摇晃、放门口即可" bindinput="onInput" data-field="note" />
+    </view>
+  </view>
+
+  <view class="section price-shell">
+    <view>
+      <view class="price-title">配送费</view>
+      <view class="price-subtitle">金额越明确，接单越快</view>
+    </view>
+    <view class="price-input-wrap">
+      <text class="currency">¥</text>
+      <input class="price-input" type="digit" value="{{fee}}" placeholder="6" bindinput="onFeeInput" />
+    </view>
+  </view>
+
+  <button class="primary-btn submit" bindtap="submitOrder">
+    <text class="button-icon">↗</text>发布任务
+  </button>
+</view>

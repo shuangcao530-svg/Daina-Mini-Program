@@ -1,0 +1,72 @@
+<view class="page home-page">
+  <view class="home-hero">
+    <view class="hero-content">
+      <text class="hero-kicker">WHMC</text>
+      <view class="hero-title">武传代拿</view>
+      <view class="hero-copy">快递、外卖、文件、钥匙，校内代取配送一站处理。</view>
+    </view>
+
+    <view class="hero-route">
+      <view class="hero-route-row">
+        <text class="hero-route-dot"></text>
+        <view>
+          <text class="hero-route-label">取件点</text>
+          <text class="hero-route-place">菜鸟驿站 / 校门 / 食堂</text>
+        </view>
+      </view>
+      <view class="hero-route-row end">
+        <text class="hero-route-dot"></text>
+        <view>
+          <text class="hero-route-label">送达点</text>
+          <text class="hero-route-place">宿舍 / 教学楼 / 图书馆</text>
+        </view>
+      </view>
+    </view>
+
+    <button class="primary-btn hero-action" bindtap="goCreate">
+      <text class="button-icon">+</text>发布任务
+    </button>
+  </view>
+
+  <view class="quick-grid">
+    <view wx:for="{{services}}" wx:key="name" class="quick-tile" bindtap="quickCreate" data-type="{{item.name}}">
+      <text class="quick-icon">{{item.icon}}</text>
+      <view class="quick-name">{{item.name}}</view>
+      <view class="quick-desc">{{item.desc}}</view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-head">
+      <view>
+        <view class="section-title">今日体验</view>
+        <text class="section-subtitle">关键节点都留有凭证</text>
+      </view>
+      <text class="tag">校内专送</text>
+    </view>
+    <view class="highlight-grid">
+      <view wx:for="{{highlights}}" wx:key="label" class="highlight-item">
+        <text class="highlight-value">{{item.value}}</text>
+        <text class="highlight-label">{{item.label}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-head">
+      <view>
+        <view class="section-title">任务进度</view>
+        <text class="section-subtitle">每一步都清楚可追踪</text>
+      </view>
+    </view>
+    <view class="flow-panel">
+      <view wx:for="{{steps}}" wx:key="title" class="flow-item">
+        <text class="flow-index">0{{index + 1}}</text>
+        <view class="flow-copy">
+          <view class="flow-title">{{item.title}}</view>
+          <view class="flow-desc">{{item.desc}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

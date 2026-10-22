@@ -1,0 +1,86 @@
+<!-- ==================== 会话列表 ==================== -->
+<view class="page messages-page" wx:if="{{view === 'list'}}">
+  <view class="section-head">
+    <view>
+      <view class="section-title">消息</view>
+      <text class="section-subtitle">与跑腿员沟通配送细节</text>
+    </view>
+  </view>
+
+  <view wx:if="{{conversations.length === 0}}" class="empty card">
+    <view class="empty-mark">聊</view>
+    <view class="empty-title">暂无会话</view>
+    <view class="muted">接单后即可与跑腿员聊天。</view>
+  </view>
+
+  <view wx:for="{{conversations}}" wx:key="orderId" class="conv-card {{item.hasUnread ? 'unread' : ''}}"
+        bindtap="openChat" data-order-id="{{item.orderId}}" data-peer-name="{{item.peerName}}"
+        data-peer-avatar="{{item.peerAvatar}}">
+    <image wx:if="{{item.peerAvatar}}" class="conv-avatar-img" src="{{item.peerAvatar}}" mode="aspectFill" />
+    <view wx:else class="conv-avatar">{{item.peerName[0] || '用'}}</view>
+    <view class="conv-body">
+      <view class="conv-head">
+        <text class="conv-name">{{item.peerName}}</text>
+        <text class="conv-order-tag">{{item.orderType}} #{{item.orderNo}}</text>
+      </view>
+      <view class="conv-foot">
+        <text class="conv-msg">{{item.lastMsg}}</text>
+        <text class="conv-time">{{item.lastTime}}</text>
+      </view>
+      <view wx:if="{{item.hasUnread}}" class="badge">{{item.unread}}</view>
+    </view>
+  </view>
+</view>
+
+<!-- ==================== 聊天详情 ==================== -->
+<view class="page chat-page" wx:else>
+  <view class="chat-header">
+    <view class="chat-back" bindtap="goBack">
+      <text class="back-arrow">←</text>
+    </view>
+    <image wx:if="{{chatPeerAvatar}}" class="chat-header-avatar" src="{{chatPeerAvatar}}" mode="aspectFill" />
+    <view wx:else class="chat-header-avatar-text">{{chatPeerName[0] || '用'}}</view>
+    <view class="chat-info">
+      <text class="chat-name">{{chatPeerName}}</text>
+    </view>
+    <view class="chat-order" bindtap="goDetail" data-order-id="{{chatOrderId}}">
+      <text class="order-link">订单详情</text>
+    </view>
+  </view>
+
+  <scroll-view class="chat-body" scroll-y scroll-into-view="{{scrollToView}}" scroll-with-animation>
+    <view class="chat-body-inner">
+    <view wx:for="{{chatMessages}}" wx:key="id" id="msg-{{item.id}}"
+          class="chat-bubble-row {{item.isMe ? 'me' : 'peer'}}">
+      <!-- 对方：头像 → 气泡 → 占位 -->
+      <block wx:if="{{!item.isMe}}">
+        <image wx:if="{{chatPeerAvatar}}" class="chat-avatar" src="{{chatPeerAvatar}}" mode="aspectFill" />
+        <view wx:else class="chat-avatar chat-avatar-text">{{chatPeerName[0] || '用'}}</view>
+        <view class="chat-bubble bubble-peer">
+          <text class="bubble-text">{{item.content}}</text>
+          <text class="bubble-time">{{item.time}}</text>
+        </view>
+        <view class="chat-spacer"></view>
+      </block>
+
+      <!-- 自己：占位 → 气泡 → 头像 -->
+      <block wx:else>
+        <view class="chat-spacer"></view>
+        <view class="chat-bubble bubble-me">
+          <text class="bubble-text">{{item.content}}</text>
+          <text class="bubble-time">{{item.time}}</text>
+        </view>
+        <image wx:if="{{myAvatar}}" class="chat-avatar" src="{{myAvatar}}" mode="aspectFill" />
+        <view wx:else class="chat-avatar chat-avatar-text me-avatar-text">我</view>
+      </block>
+    </view>
+    <view wx:if="{{chatMessages.length === 0}}" class="chat-empty">暂无消息，打个招呼吧~</view>
+    </view>
+  </scroll-view>
+
+  <view class="chat-input-bar">
+    <input class="chat-input" placeholder="输入消息..." value="{{inputText}}" bindinput="onInput"
+           confirm-type="send" bindconfirm="sendMessage" maxlength="500" />
+    <button class="send-btn" bindtap="sendMessage">发送</button>
+  </view>
+</view>

@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/create/create",
+    "pages/orders/orders",
+    "pages/detail/detail",
+    "pages/runner/runner",
+    "pages/messages/messages",
+    "pages/profile/profile"
+  ],
+  "window": {
+    "navigationBarTitleText": "小速达",
+    "navigationBarBackgroundColor": "#151A2D",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F5F7FB"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#8A93A6",
+    "selectedColor": "#0E9F7F",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "下单"
+      },
+      {
+        "pagePath": "pages/runner/runner",
+        "text": "跑腿"
+      },
+      {
+        "pagePath": "pages/messages/messages",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents",
+  "sitemapLocation": "sitemap.json"
+}

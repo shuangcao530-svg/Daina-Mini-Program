@@ -1,0 +1,98 @@
+<view class="page profile-page">
+  <view class="profile-hero">
+    <view class="avatar-row">
+      <view class="avatar">
+        <text class="avatar-text">{{userInfo.avatarText || "速"}}</text>
+      </view>
+      <view class="user-info">
+        <text class="profile-kicker">ACCOUNT</text>
+        <view class="nickname">{{userInfo.nickname || "小速达用户"}}</view>
+        <view class="school">{{userInfo.school || "校园用户"}}</view>
+      </view>
+      <view class="edit-btn" bindtap="editProfile">编辑</view>
+    </view>
+
+    <view class="role-switch" bindtap="switchRole">
+      <view>
+        <text class="role-label">当前身份</text>
+        <text class="role-value">{{userInfo.role === "runner" ? "跑腿员" : "普通用户"}}</text>
+      </view>
+      <text class="role-action">切换</text>
+    </view>
+  </view>
+
+  <view class="section balance-card">
+    <view>
+      <view class="balance-label">收益余额</view>
+      <view class="balance-amount">¥{{balance}}</view>
+    </view>
+    <button class="ghost-btn withdraw-btn" bindtap="withdraw">提现</button>
+  </view>
+
+  <view class="section stats-row">
+    <view class="stat-card">
+      <text class="stat-value">{{stats.totalOrders}}</text>
+      <text class="stat-label">累计接单</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-value">{{stats.completedOrders}}</text>
+      <text class="stat-label">已完成</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-value">¥{{stats.totalEarned}}</text>
+      <text class="stat-label">累计收益</text>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-head">
+      <view>
+        <view class="section-title">常用地址</view>
+        <text class="section-subtitle">宿舍、教学楼、驿站都可以保存</text>
+      </view>
+      <view class="add-btn" bindtap="addAddress">新增</view>
+    </view>
+
+    <view wx:if="{{addresses.length === 0}}" class="empty card address-empty">
+      <view class="empty-mark">+</view>
+      <view class="empty-title">暂无常用地址</view>
+      <view class="muted">新增后下单会更省事。</view>
+    </view>
+
+    <view wx:for="{{addresses}}" wx:key="id" class="address-card">
+      <view class="address-main">
+        <text class="address-tag">{{item.tag}}</text>
+        <view class="address-detail">{{item.detail}}</view>
+        <view class="address-contact">{{item.contact}} {{item.phone}}</view>
+      </view>
+      <view class="address-actions">
+        <text class="action-link" bindtap="editAddress" data-id="{{item.id}}">编辑</text>
+        <text class="action-link danger" bindtap="deleteAddress" data-id="{{item.id}}">删除</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="section menu-panel">
+    <view class="menu-item" bindtap="goMyOrders">
+      <view class="menu-left">
+        <text class="menu-icon">单</text>
+        <text>我的订单</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-item" bindtap="goRunner">
+      <view class="menu-left">
+        <text class="menu-icon runner">跑</text>
+        <text>跑腿工作台</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-item" bindtap="aboutApp">
+      <view class="menu-left">
+        <text class="menu-icon about">关</text>
+        <text>关于小速达</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+  </view>
+</view>

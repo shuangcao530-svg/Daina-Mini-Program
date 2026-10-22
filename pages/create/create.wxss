@@ -1,0 +1,195 @@
+.create-page {
+  padding-top: 24rpx;
+}
+
+.create-hero {
+  min-height: 230rpx;
+  padding: 34rpx;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 26rpx;
+  border-radius: 16rpx;
+  color: #ffffff;
+  background:
+    linear-gradient(135deg, rgba(14, 159, 127, 0.94) 0%, rgba(29, 127, 240, 0.84) 62%, rgba(239, 87, 70, 0.84) 100%),
+    #151a2d;
+  box-shadow: 0 22rpx 48rpx rgba(14, 159, 127, 0.22);
+}
+
+.hero-kicker {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 22rpx;
+  font-weight: 900;
+}
+
+.hero-title {
+  margin-top: 14rpx;
+  font-size: 52rpx;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.hero-copy {
+  width: 400rpx;
+  margin-top: 12rpx;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 25rpx;
+  line-height: 1.45;
+}
+
+.fee-preview {
+  min-width: 150rpx;
+  padding: 18rpx 20rpx;
+  border: 1rpx solid rgba(255, 255, 255, 0.22);
+  border-radius: 16rpx;
+  background: rgba(255, 255, 255, 0.14);
+  text-align: right;
+}
+
+.fee-label,
+.fee-value {
+  display: block;
+}
+
+.fee-label {
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 22rpx;
+  font-weight: 800;
+}
+
+.fee-value {
+  margin-top: 8rpx;
+  color: #ffffff;
+  font-size: 42rpx;
+  font-weight: 900;
+}
+
+.form-shell {
+  padding: 0 28rpx;
+  border: 1rpx solid #e4eaf2;
+  border-radius: 16rpx;
+  background: #ffffff;
+  box-shadow: 0 18rpx 42rpx rgba(25, 32, 47, 0.07);
+}
+
+.form-group {
+  padding: 30rpx 0;
+}
+
+.form-group + .form-group {
+  border-top: 1rpx solid #eef2f7;
+}
+
+.group-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18rpx;
+}
+
+.group-title {
+  color: #171f32;
+  font-size: 31rpx;
+  font-weight: 900;
+}
+
+.picker-row {
+  margin-top: 18rpx;
+  color: #171f32;
+  font-weight: 800;
+}
+
+.picker-arrow {
+  color: #8a93a6;
+  font-size: 34rpx;
+}
+
+.segmented {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12rpx;
+  margin-top: 18rpx;
+  padding: 8rpx;
+  border-radius: 16rpx;
+  background: #f1f5f9;
+}
+
+.segment {
+  min-height: 72rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12rpx;
+  color: #687386;
+  font-size: 26rpx;
+  font-weight: 900;
+}
+
+.segment.active {
+  color: #ffffff;
+  background: #171f32;
+  box-shadow: 0 12rpx 22rpx rgba(23, 31, 50, 0.16);
+}
+
+.upload-card {
+  flex-direction: column;
+  background: #f4fbf8;
+}
+
+.upload-card text {
+  line-height: 1;
+}
+
+.price-shell {
+  min-height: 150rpx;
+  padding: 26rpx 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24rpx;
+  border-radius: 16rpx;
+  background: #171f32;
+  color: #ffffff;
+  box-shadow: 0 18rpx 42rpx rgba(23, 31, 50, 0.14);
+}
+
+.price-title {
+  font-size: 32rpx;
+  font-weight: 900;
+}
+
+.price-subtitle {
+  margin-top: 8rpx;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 23rpx;
+}
+
+.price-input-wrap {
+  width: 230rpx;
+  height: 88rpx;
+  padding: 0 20rpx;
+  display: flex;
+  align-items: center;
+  border-radius: 14rpx;
+  background: #ffffff;
+}
+
+.currency {
+  color: #e97828;
+  font-size: 34rpx;
+  font-weight: 900;
+}
+
+.price-input {
+  flex: 1;
+  height: 88rpx;
+  padding-left: 10rpx;
+  color: #171f32;
+  font-size: 36rpx;
+  font-weight: 900;
+}
+
+.submit {
+  margin-top: 28rpx;
+}

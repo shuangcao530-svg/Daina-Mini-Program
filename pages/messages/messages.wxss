@@ -1,0 +1,343 @@
+/* ========== 会话列表 ========== */
+.messages-page {
+  padding-top: 24rpx;
+  padding-bottom: calc(110rpx + env(safe-area-inset-bottom));
+}
+
+.conv-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+  padding: 24rpx;
+  margin-top: 14rpx;
+  background: #ffffff;
+  border: 1rpx solid rgba(226, 232, 240, 0.95);
+  border-radius: 14rpx;
+  box-shadow: 0 10rpx 24rpx rgba(25, 32, 47, 0.045);
+}
+
+.conv-card.unread {
+  border-color: #bfe9dc;
+  background: linear-gradient(90deg, #f2fffb 0%, #ffffff 62%);
+}
+
+.conv-avatar,
+.conv-avatar-img {
+  width: 82rpx;
+  height: 82rpx;
+  flex: 0 0 82rpx;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.conv-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0e9f7f, #1d7ff0);
+  color: #ffffff;
+  font-size: 34rpx;
+  font-weight: 900;
+}
+
+.conv-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.conv-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12rpx;
+}
+
+.conv-name {
+  color: #171f32;
+  font-size: 29rpx;
+  font-weight: 800;
+}
+
+.conv-order-tag {
+  color: #8a93a6;
+  font-size: 20rpx;
+  white-space: nowrap;
+}
+
+.conv-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12rpx;
+  margin-top: 6rpx;
+}
+
+.conv-msg {
+  flex: 1;
+  color: #7a8497;
+  font-size: 24rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.conv-time {
+  color: #8a93a6;
+  font-size: 20rpx;
+  white-space: nowrap;
+}
+
+.badge {
+  min-width: 36rpx;
+  height: 36rpx;
+  padding: 0 10rpx;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18rpx;
+  background: #ef5746;
+  color: #ffffff;
+  font-size: 20rpx;
+  font-weight: 800;
+  margin-left: 12rpx;
+}
+
+/* ========== 聊天详情 ========== */
+.chat-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background:
+    linear-gradient(180deg, #eefaf6 0%, rgba(245, 247, 251, 0) 260rpx),
+    #f5f7fb;
+  padding: 0;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 14rpx;
+  padding: 14rpx 24rpx;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1rpx solid rgba(238, 241, 246, 0.9);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 8rpx 24rpx rgba(23, 31, 50, 0.04);
+}
+
+.chat-back {
+  width: 56rpx;
+  height: 56rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #edf8f5;
+}
+
+.back-arrow {
+  font-size: 34rpx;
+  color: #0e9f7f;
+  font-weight: 900;
+}
+
+.chat-header-avatar,
+.chat-header-avatar-text {
+  width: 62rpx;
+  height: 62rpx;
+  flex: 0 0 62rpx;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.chat-header-avatar-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0e9f7f, #1d7ff0);
+  color: #ffffff;
+  font-size: 27rpx;
+  font-weight: 900;
+}
+
+.chat-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.chat-name {
+  display: block;
+  font-size: 30rpx;
+  font-weight: 800;
+  color: #171f32;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chat-order {
+  flex: 0 0 auto;
+  padding: 10rpx 16rpx;
+  border-radius: 999rpx;
+  background: #eafaf5;
+}
+
+.order-link {
+  color: #0e9f7f;
+  font-size: 23rpx;
+  font-weight: 700;
+}
+
+.chat-body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.chat-body-inner {
+  padding: 22rpx 32rpx 18rpx 24rpx;
+  min-height: 100%;
+}
+
+.chat-body-inner .chat-bubble-row.me {
+  padding-right: 0;
+}
+
+.chat-bubble-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 10rpx;
+  margin-bottom: 22rpx;
+}
+
+.chat-bubble-row.me {
+  justify-content: flex-start;
+}
+
+.chat-bubble-row.peer {
+  justify-content: flex-start;
+}
+
+.chat-spacer {
+  flex: 1;
+  min-width: 20rpx;
+}
+
+.chat-avatar,
+.chat-avatar-text {
+  width: 52rpx;
+  height: 52rpx;
+  flex: 0 0 52rpx;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.chat-avatar-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0e9f7f, #1d7ff0);
+  color: #ffffff;
+  font-size: 25rpx;
+  font-weight: 900;
+}
+
+.chat-avatar-text.me-avatar-text {
+  background: linear-gradient(135deg, #e97828, #ef5746);
+}
+
+.chat-bubble {
+  max-width: 55%;
+  padding: 18rpx 24rpx;
+  border-radius: 18rpx;
+  position: relative;
+  box-shadow: 0 8rpx 22rpx rgba(25, 32, 47, 0.055);
+}
+
+.bubble-me {
+  background: linear-gradient(135deg, #0e9f7f, #1d7ff0);
+  color: #ffffff;
+  border-bottom-right-radius: 5rpx;
+}
+
+.bubble-peer {
+  background: #ffffff;
+  border: 1rpx solid #e4eaf2;
+  border-bottom-left-radius: 5rpx;
+}
+
+.bubble-text {
+  font-size: 28rpx;
+  line-height: 1.5;
+  word-break: break-all;
+}
+
+.bubble-me .bubble-text {
+  color: #ffffff;
+}
+
+.bubble-peer .bubble-text {
+  color: #171f32;
+}
+
+.bubble-time {
+  display: block;
+  margin-top: 6rpx;
+  font-size: 19rpx;
+  text-align: right;
+  opacity: 0.7;
+}
+
+.bubble-me .bubble-time {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.bubble-peer .bubble-time {
+  color: #8a93a6;
+}
+
+.chat-empty {
+  text-align: center;
+  padding: 120rpx 0;
+  color: #8a93a6;
+  font-size: 28rpx;
+}
+
+/* ========== 输入栏 ========== */
+.chat-input-bar {
+  display: flex;
+  align-items: center;
+  gap: 14rpx;
+  padding: 14rpx 22rpx;
+  padding-bottom: calc(106rpx + env(safe-area-inset-bottom));
+  background: rgba(255, 255, 255, 0.98);
+  border-top: 1rpx solid rgba(238, 241, 246, 0.96);
+  box-shadow: 0 -8rpx 24rpx rgba(23, 31, 50, 0.045);
+}
+
+.chat-input {
+  flex: 1;
+  height: 70rpx;
+  padding: 0 24rpx;
+  border: 1rpx solid #dfe5ee;
+  border-radius: 35rpx;
+  background: #f5f7fb;
+  font-size: 27rpx;
+}
+
+.send-btn {
+  width: 112rpx;
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 35rpx;
+  background: linear-gradient(135deg, #0e9f7f, #1d7ff0);
+  color: #ffffff;
+  font-size: 25rpx;
+  font-weight: 800;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 10rpx 20rpx rgba(14, 159, 127, 0.18);
+}

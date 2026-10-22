@@ -1,0 +1,11 @@
+target/
+node_modules/
+.idea/
+.vscode/
+.env
+.env.*
+/project.private.config.json
+/backend.zip
+/uploads/
+/.github/modernize/
+/xiaosuda-backend/src/main/resources/application.yml
